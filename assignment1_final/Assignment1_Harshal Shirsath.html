@@ -1,0 +1,259 @@
+                    <meta charset="utf-8" emacsmode="-*- markdown -*">
+                            **HASRHAL SHIRSATH**
+                            119247419, shirsath@umd.edu
+
+                            CMSC 848F-Assigment 1
+                            RENDERING BASICS WITH PYTORCH3D
+
+
+CMSC 848F- Assignment 1
+=====================================================================
+
+1. Rendering your first mesh
+--------------------------------------------------------------------
+
+<img src="images/R_zoom_in.jpg">
+
+<b>1 Practicing with Cameras</b><br>
+
+<b>1.1 360-degree Renders</b>
+
+        <img src=" images/cow_render.gif"alt="Computer man" >
+
+
+<b>1.2 Re-creating the Dolly Zoom</b>
+
+        <img src="images/dolly.gif" alt="Computer man">
+
+
+
+
+<b>2 Practicing with Meshes </b>
+-----------------------------------------------------------------------------------------------
+
+<b>2.1 Constructing a Tetrahedron</b><br>
+        <img src="images/tetrahedron_rotation.gif" alt="Computer man" >
+
+        This tetrahedron mesh has Faces: 4 and Vertices: 4
+        <br>
+
+<b>2.2 Constructing a Cube</b><br>
+        <img src="images/cube_rotation.gif" alt="Computer man" >
+
+        The mesh has 
+        Faces: 12
+        Vertices: 8
+        <br>
+
+<b>3. Re-texturing a mesh</b><br>
+-------------------------------------------------------------------------------------------
+        <img src="images/cow_retextured.jpg" alt="Image 1" caption="point_cloud 1">
+
+        <img src="images/cow_retextured_rotation.gif" alt="Computer man" >
+
+        The choice of color for this mesh are
+        Color1: [0, 0, 1]
+        Color2: [1,0,0]
+        <br>
+
+
+<b>4. Camera Transformation</b><br>
+-------------------------------------------------------------------------------------------
+
+        <img src=" images/transform_cow.jpg"alt="Computer man" size=40%>
+        
+<html>
+        <!DOCTYPE html>
+        <html>
+        
+        <head>
+            <style>
+                /* Center-align the image */
+                .container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: left; /* Left-align the text */
+                    flex-direction: column; /* Stack text below the image */
+                    height: 40vh; /* Ensure the container takes the full viewport height */
+                    margin-bottom: 1px; /* Add margin between containers */
+                }
+        
+                .image {
+                    max-width: 100%;
+                    max-height: 60vh; /* Limit image height */
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="container">
+                <img src="images/transform 1.jpg" alt="Computer man" class="image">
+                <p>
+                Image 1: T_relative: In this translation, there is no translation along the x and y-axis. However, there is a translation along the Z-axis.<br>
+                R_relative: The rotation is in the x-y plane, and the matrix represents a 90-degree clockwise rotation.
+                </p>
+            </div>
+        
+            <div class="container">
+                <img src="images/transform 2.jpg" alt="Computer man" class="image">
+                <p>
+                Image 2: T_relative: In this image, there is a translation along the X-axis.<br>
+                R_relative: There is a rotation of -25 degrees in the x-axis.
+                </p>
+            </div>
+        
+            <div class="container">
+                <img src="images/transform 3.jpg" alt="Computer man" class="image">
+                <p>
+                Image 3: T_relative: In this translation, it is along the Z-axis, with no translation in the x and y-axes.<br>
+                R_relative: In this case, there is no rotation about any axis, and thus it is an identity matrix.
+                </p>
+            </div>
+        
+            <div class="container">
+                <img src="images/transform 4.jpg" alt="Computer man" class="image">
+                <p>
+                Image 4: T_relative: The translation is in the positive Z-axis, thus making the object move forward.<br>
+                R_relative: In the rotation part, there is a rotation about the Y-axis with a 90-degree counterclockwise rotation.
+                    Secondly, there is a 180-degree counterclockwise rotation about the X-axis.
+                </p>
+            </div>
+        </body>
+        
+        </html>
+        
+
+<b>5 Rendering Generic 3D Representations </b>
+----------------------------------------------------------------------------------------
+
+        <img src="images/bridge.jpg" alt="Image 1" caption="bridge">
+
+<b>5.1 Rendering Point Clouds from RGB-D Images </b>
+<!-- <img src=" images/360_view_plant2.gif"alt="Computer man" > -->
+<html>
+<head>
+    <style>
+        .image-container {
+            display: flex;
+        }
+
+        .image-container img {
+            margin: 5px; /* Add some margin between the images */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="images/plant_1.gif" alt="Image 1" caption="point_cloud 1">
+        <div class="caption">
+                <p>Point Cloud 1</p>
+            </div>
+        <img src="images/plant_2.gif" alt="Image 2" caption="point_cloud 2">
+        <div class="caption">
+                <p>Point Cloud 2</p>
+            </div>
+        <img src="images/360_view_plant2.gif" alt="Image 3" caption="point_cloud merge">
+        <div class="caption">
+                <p>Blended 2 point clouds</p>
+            </div>
+    </div>
+</body>
+</html>
+
+<b>5.2 Parametric Functions </b>
+
+<html>
+
+<head>
+    <style>
+        /* Center-align the image and caption */
+        .container {
+            text-align: center;
+        }
+
+        .image {
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            max-width: 100%;
+            max-height: 80vh; /* Limit image height */
+        }
+
+        .caption {
+            text-align: left; /* Left-align the caption text */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="images/torus_gif_5.2.1.gif" alt="Your Image" class="image">
+        <div class="caption">
+            <p>Number of Samples: 100</p>
+        </div>
+    </div>
+    <div class="container">
+        <img src="images/torus_gif_5.2.2.gif" alt="Your Image" class="image">
+        <div class="caption">
+            <p>Number of Samples: 100</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<b>5.3 Implicit Surfaces </b>
+
+<html>
+
+<head>
+    <style>
+        /* Center-align the image and caption */
+        .container {
+            text-align: center;
+        }
+
+        .image {
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            max-width: 100%;
+            max-height: 80vh; /* Limit image height */
+        }
+
+        .caption {
+            text-align: left; /* Left-align the caption text */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="images/torus_5.3.gif" alt="Your Image" class="image">
+        <div class="caption">
+            <p>Implicit Surfaces</p>
+        </div>
+    </div>
+    Depending on the application rendering as a mesh and rendering as a point cloud each has it's own tradeoffs. However, below mentioned
+    are some considerations for rendering a mesh or rendering a point cloud:
+    1. Quality: Mesh: When considered quality it comes to the voxel size. Therefore meshes provide with smooth surfaces, better shading and lighting.
+                    They provide much better rendering effect with detailed visuals for games, VR sets, and simulations.
+                Point Cloud:Point clouds on the other hand, have points that are well aligned with the surface and thus, result in improper fluidic
+                             surfaces and fine details.
+    2. Real-time Computation: Mesh: Real-time computation for mesh is intensive when considered for complex models and may not be possible for every model.
+                Point Cloud: Point clouds are easy to manipulate to provide just the structure of the framework and thus, real time computation can be managed 
+                            easily by point cloud editing and point render manipulation.
+    3. User Convenience: Mesh: Meshes are time consuming and complex to work with tasks like, mesh generation, mesh optimisation, 3D modeling. Thus, editing meshes 
+                                is always a challenge.
+                        Point Cloud: Point clouds are easy to generate. However, they take time to generate while keepign the model simple
+                                    to edit and can be worked around at higher speed like 3D scanner.
+</body>
+
+</html>
+
+
+
+
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
+
